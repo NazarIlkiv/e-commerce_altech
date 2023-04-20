@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="layout">
+    <div className="wrapper">
       <Head>
         <title>АЛТЕХ Онлайн-магазин</title>
       </Head>

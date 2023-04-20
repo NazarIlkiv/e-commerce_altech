@@ -1,3 +1,128 @@
+Reset and base styles * {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  /*outline: none;*/
+}
+
+a:focus,
+a:active {
+  /* outline: none;*/
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+  /* color: inherit; */
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a:hover {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+/* Common */
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+/* --------------- */
+
 html,
 body,
 * {
@@ -7,6 +132,7 @@ body,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
 }
+
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -21,16 +147,165 @@ a {
   margin: auto;
   width: 100%;
 }
-.layout {
-  padding: 10px;
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
+
+/* Header/Navbar styles */
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
-  margin: 6px 18px;
-  position: relative;
+  column-gap: 35px;
+  min-height: 116px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
 }
+.header-logo img {
+  z-index: 5;
+}
+.header-logo {
+  position: relative;
+  z-index: 5;
+}
+.navbar-menu {
+  flex: 1 1 auto;
+}
+.menu-body {
+}
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 3px;
+  column-gap: 35px;
+  justify-content: flex-end;
+}
+.menu-item {
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 3px;
+  column-gap: 35px;
+  justify-content: flex-end;
+}
+.menu-link {
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  line-height: 1.62;
+}
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+.icon-menu {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-container,
+  .menu-list {
+    column-gap: 25px;
+  }
+  .navbar-container {
+    min-height: 90px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-container,
+  .menu-list {
+    column-gap: 15px;
+  }
+  .menu-body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    top: 0;
+    padding: 100px 15px 30px 15px;
+    overflow: auto;
+    transition: left 0.3s ease 0s;
+  }
+  .menu-list {
+    row-gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .menu-body::before {
+    content: "";
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 70px;
+    background-color: #000;
+    z-index: 2;
+    transition: left 0.3s ease 0s;
+  }
+  .menu-open .menu-body,
+  .menu-open .menu-body::before {
+    left: 0;
+  }
+  .icon-menu {
+    display: block;
+    flex: 0 0 30px;
+    height: 18px;
+    position: relative;
+    z-index: 5;
+  }
+  .icon-menu span,
+  .icon-menu::before,
+  .icon-menu::after {
+    content: "";
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease 0s;
+  }
+  .icon-menu::before {
+    top: 0;
+  }
+  .icon-menu::after {
+    bottom: 0;
+  }
+  .icon-menu span {
+    top: calc(50%-1px);
+  }
+
+  .menu-open .icon-menu span {
+    width: 0;
+  }
+  .menu-open .icon-menu::before {
+    transform: rotate(-45deg);
+    top: calc(50% - 1px);
+  }
+  .menu-open .icon-menu::after {
+    transform: rotate(45deg);
+    bottom: calc(50% - 1px);
+  }
+}
+
+@media (max-width: 560.98px) {
+  .header-logo {
+    display: none;
+  }
+}
+
+/* /////////////////// */
 .marquee-text {
   font-size: 29px;
   font-weight: 600;
