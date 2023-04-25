@@ -11,8 +11,8 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <div className="navbar-container">
-      <Link className="header-logo" href="/">
-        <img src="./Altech_logo.svg" />
+      <Link href="/">
+        <img className="header-logo" src="./Altech_logo.svg" />
       </Link>
       <nav className="navbar-menu menu">
         <div className="menu-body">
@@ -25,11 +25,6 @@ const Navbar = () => {
             <li className="menu-item">
               <Link href="/products">
                 <div className="menu-link">Про нас</div>
-              </Link>
-            </li>
-            <li className="menu-item">
-              <Link href="/products">
-                <div className="menu-link">Продукція</div>
               </Link>
             </li>
             <li className="menu-item">

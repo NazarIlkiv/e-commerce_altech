@@ -299,12 +299,6 @@ a {
   }
 }
 
-@media (max-width: 560.98px) {
-  .header-logo {
-    display: none;
-  }
-}
-
 /* /////////////////// */
 .marquee-text {
   font-size: 29px;
@@ -416,6 +410,12 @@ span.text-red {
 .hero-banner-container .beats-solo {
   font-size: 20px;
 }
+
+.herobanner-midtext,
+.herobanner-largeText1 {
+  font-weight: 700;
+}
+
 .hero-banner-container button {
   border-radius: 15px;
   padding: 10px 16px;
@@ -440,11 +440,19 @@ span.text-red {
   text-transform: uppercase;
 }
 .hero-banner-image {
+  padding: 15px;
   position: absolute;
-  top: 0%;
-  right: 20%;
+  top: 5%;
+  right: 1%;
   width: 450px;
-  height: 450px;
+  height: 400px;
+}
+
+@media (max-width: 1099px) {
+  .hero-banner-image,
+  .desc {
+    display: none;
+  }
 }
 
 .desc {
@@ -927,15 +935,6 @@ span.text-red {
     flex-wrap: wrap;
     gap: 20px;
   }
-  .hero-banner-container {
-    line-height: 1.3;
-  }
-  .hero-banner-container h1 {
-    font-size: 50px;
-  }
-  .hero-banner-container h3 {
-    font-size: 40px;
-  }
   .hero-banner-container button {
     margin-top: 90px;
     z-index: 10000;
@@ -1025,6 +1024,16 @@ span.text-red {
   .btn-container {
     width: 300px;
     margin: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-banner-container,
+  .footer-banner-container {
+    display: none;
+  }
+  .header-logo {
+    width: 200px;
   }
 }
 
